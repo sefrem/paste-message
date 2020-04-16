@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Message.com adding text extension",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["https://www.messenger.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs", "clipboardRead", "clipboardWrite"],
+  "browser_action": {
+    "default_icon": "images/icon_128.png",
+    "default_popup": "popup.html",
+    "default_title": "Вводи текст на messenger.com"
+  },
+  "icons": {
+    "16": "images/icon_16.png",
+    "48": "images/icon_48.png",
+    "128": "images/icon_128.png"
+  }
+}
