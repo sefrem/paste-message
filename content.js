@@ -1,7 +1,10 @@
-chrome.runtime.onMessage.addListener(request=> {
+chrome.runtime.onMessage.addListener((request) => {
   if (request.message === "Extension tab") {
-    document.execCommand("paste");
-    document.querySelector('[aria-label="Отправить"]').click()
+    navigator.clipboard
+      .readText()
+      .then(() => {
+        document.execCommand("paste");
+      })
+      .then(() => document.querySelector('[aria-label="Отправить"]').click());
   }
 });
-
